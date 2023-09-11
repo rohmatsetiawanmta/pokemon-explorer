@@ -86,14 +86,14 @@ export default function Home() {
                   <div className='icons'>
                     <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
                       {favorite.indexOf(pokemon.key) === -1 ? (
-                        <span class='material-symbols-outlined'>favorite</span>
+                        <span className='material-symbols-outlined'>favorite</span>
                       ) : (
-                        <span class='material-symbols-outlined filled'>favorite</span>
+                        <span className='material-symbols-outlined filled'>favorite</span>
                       )}
                     </div>
                     <div className='icon'>
                       <a href={`./detail/${pokemon.num}`}>
-                        <span class='material-symbols-outlined'>info</span>
+                        <span className='material-symbols-outlined'>info</span>
                       </a>
                     </div>
                   </div>
@@ -149,14 +149,14 @@ export default function Home() {
                 <div className='icons'>
                   <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
                     {favorite.indexOf(pokemon.key) === -1 ? (
-                      <span class='material-symbols-outlined'>favorite</span>
+                      <span className='material-symbols-outlined'>favorite</span>
                     ) : (
-                      <span class='material-symbols-outlined filled'>favorite</span>
+                      <span className='material-symbols-outlined filled'>favorite</span>
                     )}
                   </div>
                   <div className='icon'>
                     <a href={`./detail/${pokemon.num}`}>
-                      <span class='material-symbols-outlined'>info</span>
+                      <span className='material-symbols-outlined'>info</span>
                     </a>
                   </div>
                 </div>
@@ -169,19 +169,19 @@ export default function Home() {
         {page === 1 ? (
           <>
             <button className='disable'>
-              <span class='material-symbols-outlined'>keyboard_double_arrow_left</span>
+              <span className='material-symbols-outlined'>keyboard_double_arrow_left</span>
             </button>
             <button className='disable'>
-              <span class='material-symbols-outlined'>keyboard_arrow_left</span>
+              <span className='material-symbols-outlined'>keyboard_arrow_left</span>
             </button>
           </>
         ) : (
           <>
             <button onClick={() => setPage(1)}>
-              <span class='material-symbols-outlined'>keyboard_double_arrow_left</span>
+              <span className='material-symbols-outlined'>keyboard_double_arrow_left</span>
             </button>
             <button onClick={() => setPage(page - 1)}>
-              <span class='material-symbols-outlined'>keyboard_arrow_left</span>
+              <span className='material-symbols-outlined'>keyboard_arrow_left</span>
             </button>
           </>
         )}
@@ -191,19 +191,19 @@ export default function Home() {
         {page === maxPage ? (
           <>
             <button className='disable'>
-              <span class='material-symbols-outlined'>keyboard_arrow_right</span>
+              <span className='material-symbols-outlined'>keyboard_arrow_right</span>
             </button>
             <button className='disable'>
-              <span class='material-symbols-outlined'>keyboard_double_arrow_right</span>
+              <span className='material-symbols-outlined'>keyboard_double_arrow_right</span>
             </button>
           </>
         ) : (
           <>
             <button onClick={() => setPage(page + 1)}>
-              <span class='material-symbols-outlined'>keyboard_arrow_right</span>
+              <span className='material-symbols-outlined'>keyboard_arrow_right</span>
             </button>
             <button onClick={() => setPage(maxPage)}>
-              <span class='material-symbols-outlined'>keyboard_double_arrow_right</span>
+              <span className='material-symbols-outlined'>keyboard_double_arrow_right</span>
             </button>
           </>
         )}

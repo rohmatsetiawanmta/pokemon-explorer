@@ -110,12 +110,12 @@ export default function Detail({ params }) {
           <div className='icon' onClick={(e) => handleFavorite(pokemonData.key)}>
             {favorite?.indexOf(pokemonData.key) === -1 ? (
               <div className='iconFavorite'>
-                <span class='material-symbols-outlined'>favorite</span>
+                <span className='material-symbols-outlined'>favorite</span>
                 <div>Favorite</div>
               </div>
             ) : (
               <div className='iconFavorite'>
-                <span class='material-symbols-outlined filled'>favorite</span>
+                <span className='material-symbols-outlined filled'>favorite</span>
                 <div>Favorited</div>
               </div>
             )}
@@ -204,7 +204,7 @@ export default function Detail({ params }) {
               <div className='statGender'>
                 <div className='statGenderBar'>
                   <div>
-                    <span class='material-symbols-outlined'>male</span>
+                    <span className='material-symbols-outlined'>male</span>
                   </div>
                   <div className='genderBar'>
                     <div className='genderBarMale' style={{ width: pokemonData.gender.male }}>
@@ -215,7 +215,7 @@ export default function Detail({ params }) {
                     </div>
                   </div>
                   <div>
-                    <span class='material-symbols-outlined'>female</span>
+                    <span className='material-symbols-outlined'>female</span>
                   </div>
                 </div>
                 <div className='statGenderDescription'>
@@ -239,7 +239,7 @@ export default function Detail({ params }) {
         <div className='prevPokemon'>
           <a href={`./${prevPokemonData.num}`}>
             <div>
-              <span class='material-symbols-outlined'>arrow_left_alt</span>
+              <span className='material-symbols-outlined'>arrow_left_alt</span>
             </div>
             <p className='nextPrevPokemonNum'>#{prevPokemonData.num}</p>
             <img
@@ -252,7 +252,7 @@ export default function Detail({ params }) {
         <div className='nextPokemon'>
           <a href={`./${nextPokemonData.num}`}>
             <div>
-              <span class='material-symbols-outlined'>arrow_right_alt</span>
+              <span className='material-symbols-outlined'>arrow_right_alt</span>
             </div>
             <p className='nextPrevPokemonNum'>#{nextPokemonData.num}</p>
             <img
