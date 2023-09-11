@@ -121,116 +121,118 @@ export default function Detail({ params }) {
             )}
           </div>
         </div>
-        <div className='pokemonDetails'>
-          <div className='pokemonDetail detailLight'>
-            <div className='detailName'>Species Name</div>
-            <div className='detail'>{properString(pokemonData.species)}</div>
-          </div>
-          <div className='pokemonDetail'>
-            <div className='detailName'>Type</div>
-            <div className='detailType'>
-              {pokemonData.types.map((type) => {
-                return (
-                  <div key={type.name} className={`type ${type.name.toLowerCase()}`}>
-                    {type.name}
-                  </div>
-                );
-              })}
+        <div className='pokemonData'>
+          <div className='pokemonDetails'>
+            <div className='pokemonDetail detailLight'>
+              <div className='detailName'>Species Name</div>
+              <div className='detail'>{properString(pokemonData.species)}</div>
             </div>
-          </div>
-          <div className='pokemonDetail detailLight'>
-            <div className='detailName'>Height</div>
-            <div className='detail'>{pokemonData.height} m</div>
-          </div>
-          <div className='pokemonDetail'>
-            <div className='detailName'>Weight</div>
-            <div className='detail'>{pokemonData.weight} gram</div>
-          </div>
-          <div className='pokemonDetail detailLight'>
-            <div className='detailName'>Abilities</div>
-            <div className='detailAbilities'>
-              {Object.keys(pokemonData.abilities)
-                .slice(1)
-                .map((key) => {
+            <div className='pokemonDetail'>
+              <div className='detailName'>Type</div>
+              <div className='detailType'>
+                {pokemonData.types.map((type) => {
                   return (
-                    <div key={key}>
-                      {pokemonData.abilities[key]?.name ? (
-                        <div className='detailAbility'>
-                          <div className='abilityType'>{properString(key)}</div>
-                          <div className='abilityName'>{pokemonData.abilities[key]?.name}</div>
-                        </div>
-                      ) : (
-                        <></>
-                      )}
+                    <div key={type.name} className={`type ${type.name.toLowerCase()}`}>
+                      {type.name}
                     </div>
                   );
                 })}
-            </div>
-          </div>
-        </div>
-        <div className='pokemonStats'>
-          <div className='pokemonStat statLight'>
-            <div className='statName'>Base Stats</div>
-            <div className='baseStats'>
-              <div className='baseStat'>
-                <div className='baseStatName'>Attack</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.attack}</div>
-              </div>
-              <div className='baseStat'>
-                <div className='baseStatName'>Defense</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.defense}</div>
-              </div>
-              <div className='baseStat'>
-                <div className='baseStatName'>HP</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.hp}</div>
-              </div>
-              <div className='baseStat'>
-                <div className='baseStatName'>Sp. Attack</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.specialattack}</div>
-              </div>
-              <div className='baseStat'>
-                <div className='baseStatName'>Sp. Defense</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.specialdefense}</div>
-              </div>
-              <div className='baseStat'>
-                <div className='baseStatName'>Speed</div>
-                <div className='baseStatNum'>{pokemonData.baseStats.speed}</div>
               </div>
             </div>
+            <div className='pokemonDetail detailLight'>
+              <div className='detailName'>Height</div>
+              <div className='detail'>{pokemonData.height} m</div>
+            </div>
+            <div className='pokemonDetail'>
+              <div className='detailName'>Weight</div>
+              <div className='detail'>{pokemonData.weight} gram</div>
+            </div>
+            <div className='pokemonDetail detailLight'>
+              <div className='detailName'>Abilities</div>
+              <div className='detailAbilities'>
+                {Object.keys(pokemonData.abilities)
+                  .slice(1)
+                  .map((key) => {
+                    return (
+                      <div key={key}>
+                        {pokemonData.abilities[key]?.name ? (
+                          <div className='detailAbility'>
+                            <div className='abilityType'>{properString(key)}</div>
+                            <div className='abilityName'>{pokemonData.abilities[key]?.name}</div>
+                          </div>
+                        ) : (
+                          <></>
+                        )}
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
           </div>
-          <div className='pokemonStat'>
-            <div className='statName'>Gender</div>
-            {parseFloat(pokemonData.gender.male) + parseFloat(pokemonData.gender.female) === 100 ? (
-              <div className='statGender'>
-                <div className='statGenderBar'>
-                  <div>
-                    <span className='material-symbols-outlined'>male</span>
-                  </div>
-                  <div className='genderBar'>
-                    <div className='genderBarMale' style={{ width: pokemonData.gender.male }}>
-                      .
-                    </div>
-                    <div className='genderBarFemale' style={{ width: pokemonData.gender.female }}>
-                      .
-                    </div>
-                  </div>
-                  <div>
-                    <span className='material-symbols-outlined'>female</span>
-                  </div>
+          <div className='pokemonStats'>
+            <div className='pokemonStat statLight'>
+              <div className='statName'>Base Stats</div>
+              <div className='baseStats'>
+                <div className='baseStat'>
+                  <div className='baseStatName'>Attack</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.attack}</div>
                 </div>
-                <div className='statGenderDescription'>
-                  <div>{pokemonData.gender.male} Male</div>
-                  <div>{pokemonData.gender.female} Female</div>
+                <div className='baseStat'>
+                  <div className='baseStatName'>Defense</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.defense}</div>
+                </div>
+                <div className='baseStat'>
+                  <div className='baseStatName'>HP</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.hp}</div>
+                </div>
+                <div className='baseStat'>
+                  <div className='baseStatName'>Sp. Attack</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.specialattack}</div>
+                </div>
+                <div className='baseStat'>
+                  <div className='baseStatName'>Sp. Defense</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.specialdefense}</div>
+                </div>
+                <div className='baseStat'>
+                  <div className='baseStatName'>Speed</div>
+                  <div className='baseStatNum'>{pokemonData.baseStats.speed}</div>
                 </div>
               </div>
-            ) : (
-              <div className='noGender'>Gender Unknown</div>
-            )}
-          </div>
-          <div className='pokemonStat statLight'>
-            <div className='statName'>Catch Rate</div>
-            <div>
-              {pokemonData.catchRate.base} ({pokemonData.catchRate.percentageWithOrdinaryPokeballAtFullHealth})
+            </div>
+            <div className='pokemonStat'>
+              <div className='statName'>Gender</div>
+              {parseFloat(pokemonData.gender.male) + parseFloat(pokemonData.gender.female) === 100 ? (
+                <div className='statGender'>
+                  <div className='statGenderBar'>
+                    <div>
+                      <span className='material-symbols-outlined'>male</span>
+                    </div>
+                    <div className='genderBar'>
+                      <div className='genderBarMale' style={{ width: pokemonData.gender.male }}>
+                        .
+                      </div>
+                      <div className='genderBarFemale' style={{ width: pokemonData.gender.female }}>
+                        .
+                      </div>
+                    </div>
+                    <div>
+                      <span className='material-symbols-outlined'>female</span>
+                    </div>
+                  </div>
+                  <div className='statGenderDescription'>
+                    <div>{pokemonData.gender.male} Male</div>
+                    <div>{pokemonData.gender.female} Female</div>
+                  </div>
+                </div>
+              ) : (
+                <div className='noGender'>Gender Unknown</div>
+              )}
+            </div>
+            <div className='pokemonStat statLight'>
+              <div className='statName'>Catch Rate</div>
+              <div>
+                {pokemonData.catchRate.base} ({pokemonData.catchRate.percentageWithOrdinaryPokeballAtFullHealth})
+              </div>
             </div>
           </div>
         </div>

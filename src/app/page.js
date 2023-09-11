@@ -45,7 +45,7 @@ export default function Home() {
   }, []);
 
   const handleFavorite = (key) => {
-    let index = favorite.indexOf(key);
+    let index = favorite?.indexOf(key);
     if (index === -1) {
       setFavorite([...favorite, key]);
       localStorage.setItem('favorite', JSON.stringify([...favorite, key]));
@@ -57,7 +57,7 @@ export default function Home() {
     }
   };
 
-  const pokemonFavoriteData = pokemonData.filter((pokemon) => favorite.indexOf(pokemon.key) !== -1);
+  const pokemonFavoriteData = pokemonData.filter((pokemon) => favorite?.indexOf(pokemon.key) !== -1);
 
   return (
     <div className='container'>
@@ -85,7 +85,7 @@ export default function Home() {
                   </div>
                   <div className='icons'>
                     <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
-                      {favorite.indexOf(pokemon.key) === -1 ? (
+                      {favorite?.indexOf(pokemon.key) === -1 ? (
                         <span className='material-symbols-outlined'>favorite</span>
                       ) : (
                         <span className='material-symbols-outlined filled'>favorite</span>
@@ -148,7 +148,7 @@ export default function Home() {
                 </div>
                 <div className='icons'>
                   <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
-                    {favorite.indexOf(pokemon.key) === -1 ? (
+                    {favorite?.indexOf(pokemon.key) === -1 ? (
                       <span className='material-symbols-outlined'>favorite</span>
                     ) : (
                       <span className='material-symbols-outlined filled'>favorite</span>
