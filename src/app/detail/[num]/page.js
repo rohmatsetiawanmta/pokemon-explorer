@@ -153,16 +153,16 @@ export default function Detail({ params }) {
                 .slice(1)
                 .map((key) => {
                   return (
-                    <>
+                    <div key={key}>
                       {pokemonData.abilities[key]?.name ? (
-                        <div className='detailAbility' key={key}>
+                        <div className='detailAbility'>
                           <div className='abilityType'>{properString(key)}</div>
                           <div className='abilityName'>{pokemonData.abilities[key]?.name}</div>
                         </div>
                       ) : (
                         <></>
                       )}
-                    </>
+                    </div>
                   );
                 })}
             </div>
