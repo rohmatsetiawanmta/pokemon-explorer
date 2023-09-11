@@ -33,7 +33,7 @@ export default function Home() {
   const listDataPerPage = [5, 10, 25, 50, 100];
 
   useEffect(() => {
-    setMaxPage(Math.ceil(pokemonData.filter((pokemon) => pokemon.species.toLowerCase().includes(search.toLowerCase())).length / dataPerPage));
+    setMaxPage(Math.ceil(pokemonData.filter((pokemon) => pokemon.species.toLowerCase().includes(search.toLowerCase()))?.length / dataPerPage));
   }, [pokemonData, dataPerPage, search]);
 
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <div className='container'>
-      {favorite.length > 0 ? (
+      {favorite?.length > 0 ? (
         <>
           <h1>Favorite Pokemon</h1>
           <div className='cards'>
