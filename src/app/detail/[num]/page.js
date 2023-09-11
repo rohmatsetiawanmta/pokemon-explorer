@@ -57,25 +57,6 @@ const query = gql`
 `;
 
 export default function Detail({ params }) {
-  const [favorite, setFavorite] = useState([]);
-
-  useEffect(() => {
-    setFavorite(JSON.parse(localStorage.getItem('favorite')));
-  }, []);
-
-  const handleFavorite = (key) => {
-    let index = favorite.indexOf(key);
-    if (index === -1) {
-      setFavorite([...favorite, key]);
-      localStorage.setItem('favorite', JSON.stringify([...favorite, key]));
-    } else {
-      const updatedFavorite = [...favorite];
-      updatedFavorite.splice(index, 1);
-      setFavorite(updatedFavorite);
-      localStorage.setItem('favorite', JSON.stringify(updatedFavorite));
-    }
-  };
-
   const properString = (input) => {
     return input
       .toLowerCase()
@@ -107,19 +88,6 @@ export default function Detail({ params }) {
             src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemonData.num}.png`}
             alt={pokemonData.key}
           />
-          <div className='icon' onClick={(e) => handleFavorite(pokemonData.key)}>
-            {favorite?.indexOf(pokemonData.key) === -1 ? (
-              <div className='iconFavorite'>
-                <span className='material-symbols-outlined'>favorite</span>
-                <div>Favorite</div>
-              </div>
-            ) : (
-              <div className='iconFavorite'>
-                <span className='material-symbols-outlined filled'>favorite</span>
-                <div>Favorited</div>
-              </div>
-            )}
-          </div>
         </div>
         <div className='pokemonData'>
           <div className='pokemonDetails'>

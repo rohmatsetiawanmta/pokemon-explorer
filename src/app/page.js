@@ -25,7 +25,6 @@ export default function Home() {
     (pokemon) => pokemon.num > 0 && pokemon.num <= 905 && !pokemon.formeLetter && pokemon.key != 'sneaselhisui'
   );
 
-  const [favorite, setFavorite] = useState([]);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
   const [dataPerPage, setDataPerPage] = useState(10);
@@ -40,72 +39,8 @@ export default function Home() {
     setPage(1);
   }, [dataPerPage]);
 
-  useEffect(() => {
-    setFavorite(JSON.parse(localStorage.getItem('favorite')));
-  }, []);
-
-  const handleFavorite = (key) => {
-    let index = favorite?.indexOf(key);
-    if (index === -1) {
-      setFavorite([...favorite, key]);
-      localStorage.setItem('favorite', JSON.stringify([...favorite, key]));
-    } else {
-      const updatedFavorite = [...favorite];
-      updatedFavorite.splice(index, 1);
-      setFavorite(updatedFavorite);
-      localStorage.setItem('favorite', JSON.stringify(updatedFavorite));
-    }
-  };
-
-  const pokemonFavoriteData = pokemonData.filter((pokemon) => favorite?.indexOf(pokemon.key) !== -1);
-
   return (
     <div className='container'>
-      {favorite?.length > 0 ? (
-        <>
-          <h1>Favorite Pokemon</h1>
-          <div className='cards'>
-            {pokemonFavoriteData.map((pokemon) => {
-              return (
-                <div key={pokemon.key} className='card'>
-                  <div>#{pokemon.num}</div>
-                  <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.num}.png`}
-                    alt={pokemon.key}
-                  />
-                  <div>{pokemon.species.toUpperCase()}</div>
-                  <div className='types'>
-                    {pokemon.types.map((type) => {
-                      return (
-                        <div key={type.name} className={`type ${type.name.toLowerCase()}`}>
-                          {type.name}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div className='icons'>
-                    <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
-                      {favorite?.indexOf(pokemon.key) === -1 ? (
-                        <span className='material-symbols-outlined'>favorite</span>
-                      ) : (
-                        <span className='material-symbols-outlined filled'>favorite</span>
-                      )}
-                    </div>
-                    <div className='icon'>
-                      <a href={`./detail/${pokemon.num}`}>
-                        <span className='material-symbols-outlined'>info</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </>
-      ) : (
-        <></>
-      )}
-
       <div className='pokemonListHeader'>
         <h1>Pokemon List</h1>
         <div className='listNumberPerPage'>
@@ -147,13 +82,6 @@ export default function Home() {
                   })}
                 </div>
                 <div className='icons'>
-                  <div className='icon' onClick={(e) => handleFavorite(pokemon.key)}>
-                    {favorite?.indexOf(pokemon.key) === -1 ? (
-                      <span className='material-symbols-outlined'>favorite</span>
-                    ) : (
-                      <span className='material-symbols-outlined filled'>favorite</span>
-                    )}
-                  </div>
                   <div className='icon'>
                     <a href={`./detail/${pokemon.num}`}>
                       <span className='material-symbols-outlined'>info</span>
