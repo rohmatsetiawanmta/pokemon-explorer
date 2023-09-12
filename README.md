@@ -17,4 +17,8 @@ Pokemon Explorer is a comprehensive directory of Pokemon, allowing users to easi
 [https://pokemon-explorer-rohmat.vercel.app/](https://pokemon-explorer-rohmat.vercel.app/)
 
 ## Snapshot
-![snapshot](https://codingmat.com/images/portfolio-pokemon-explorer.png)
+![snapshot1](https://codingmat.com/github-image/Snapshot1.png)
+![snapshot2](https://codingmat.com/github-image/Snapshot2.png)
+![snapshot3](https://codingmat.com/github-image/Snapshot3.png)
+![snapshot4](https://codingmat.com/github-image/Snapshot4.png)
+![snapshot5](https://codingmat.com/github-image/Snapshot5.png)
